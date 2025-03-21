@@ -1,36 +1,60 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-function Services() {
+const services = [
+  {
+    title: 'Diseño Web Moderno',
+    description: 'Sitios atractivos, responsivos y optimizados para causar la mejor impresión online.',
+    icon: '🌐',
+  },
+  {
+    title: 'Landing Pages',
+    description: 'Páginas enfocadas en conversión para campañas publicitarias o presentación de servicios.',
+    icon: '🚀',
+  },
+  {
+    title: 'Optimización y SEO',
+    description: 'Mejora de velocidad, rendimiento y posicionamiento en Google.',
+    icon: '📈',
+  },
+  {
+    title: 'Despliegue en Vercel & GitHub',
+    description: 'Proyectos listos para producción, conectados a repositorios y con actualizaciones automáticas.',
+    icon: '⚙️',
+  },
+];
+
+const Services = () => {
   return (
-    <section id="services" className="py-16 px-6 bg-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4 text-gray-800">Servicios</h2>
-        <p className="text-gray-600 text-lg mb-10">
-          Esto es lo que puedo hacer por ti y tu negocio:
-        </p>
-        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-          <div className="bg-gray-50 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2 text-blue-600">Diseño web moderno</h3>
-            <p className="text-gray-600">
-              Sitios atractivos, responsivos y optimizados para dar la mejor impresión online.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2 text-blue-600">Landing Pages</h3>
-            <p className="text-gray-600">
-              Páginas enfocadas en conversión para campañas publicitarias o presentación de servicios.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-2xl shadow-md hover:scale-105 transition-transform">
-            <h3 className="text-2xl font-semibold mb-2 text-blue-600">Optimización y SEO</h3>
-            <p className="text-gray-600">
-              Mejoro la velocidad de carga y posicionamiento para que tu web destaque en Google.
-            </p>
-          </div>
+    <section id="services" className="py-20 bg-gray-50 text-gray-900">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-12"
+        >
+          Servicios
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition text-center"
+            >
+              <div className="text-5xl mb-4">{service.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-600">{service.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Services;

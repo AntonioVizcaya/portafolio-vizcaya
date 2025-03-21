@@ -6,6 +6,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';  // 👈 Esta importación va aquí
 import Footer from './components/Footer';
 
+
 function App() {
   return (
     <div>
@@ -16,6 +17,7 @@ function App() {
       <Services />
       <Contact />   {/* 👈 Este componente se usa dentro del return */}
       <Footer />
+
     </div>
   );
 }

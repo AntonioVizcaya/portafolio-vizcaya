@@ -1,55 +1,68 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-function Contact() {
+const Contact = () => {
   return (
-    <section id="contact" className="py-16 px-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4 text-gray-800">Contáctame</h2>
-        <p className="text-gray-600 mb-10">
-          ¿Tienes un proyecto en mente o necesitas ayuda con tu presencia online? ¡Escríbeme!
-        </p>
-        <form 
-          className="bg-white p-8 rounded-2xl shadow-lg text-left space-y-4 max-w-2xl mx-auto"
-          action="https://formsubmit.co/tu-correo@gmail.com" 
-          method="POST"
+    <section id="contact" className="py-20 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-extrabold mb-6"
         >
-          <div>
-            <label className="block mb-1 text-gray-700">Nombre</label>
-            <input 
-              type="text" 
-              name="name" 
+          Contáctame
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-lg mb-10 max-w-xl mx-auto"
+        >
+          ¿Tienes un proyecto en mente o quieres trabajar conmigo? ¡Mándame un mensaje y te respondo pronto!
+        </motion.p>
+        <motion.form
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="bg-white rounded-xl p-8 shadow-lg text-gray-900 max-w-xl mx-auto"
+        >
+          <div className="mb-4">
+            <input
+              type="text"
+              placeholder="Nombre"
+              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
-              className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" 
             />
           </div>
-          <div>
-            <label className="block mb-1 text-gray-700">Correo electrónico</label>
-            <input 
-              type="email" 
-              name="email" 
+          <div className="mb-4">
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
-              className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" 
             />
           </div>
-          <div>
-            <label className="block mb-1 text-gray-700">Mensaje</label>
-            <textarea 
-              name="message" 
-              rows="4" 
+          <div className="mb-4">
+            <textarea
+              placeholder="Mensaje"
+              rows="4"
+              className="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
-              className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
-          <button 
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-lg transition-colors"
+            className="w-full bg-purple-600 text-white py-3 rounded-full font-semibold hover:bg-purple-700 transition"
           >
             Enviar mensaje 🚀
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
       </div>
     </section>
   );
-}
+};
 
 export default Contact;

@@ -75,3 +75,27 @@ a {
   text-decoration: none;
   color: inherit;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-textDark font-sans;
+}
+
+h1, h2, h3, h4 {
+  @apply font-bold;
+}
+
+a {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+  @apply text-secondary;
+  transform: scale(1.05);
+}
